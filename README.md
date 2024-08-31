@@ -9,6 +9,7 @@
 - 방대한 양의 공식 문서를 단기간에 소화하거나, 원하는 정보를 찾는 것이 어려움
 - 정확한 문자를 입력하지 않으면 내부에서 제공하는 검색 시스템에서 찾아지지 않음
 - 이를 RAG 를 이용하여 벡터 서치로 해결하고자 함
+![hf](https://github.com/user-attachments/assets/64863c2d-c73c-4a78-ae8e-1e72e0b53b26)
 
 ## Goals and non-goals
 이 시스템을 통하여 달성하고자 하는 목표는 다음과 같습니다.
@@ -23,12 +24,12 @@
 
 ## Detailed design
 ### UI design
-
+![image](https://github.com/user-attachments/assets/b15142c0-b18c-4a48-a4ee-6b9bd42cfc46)
 -> leonardo.Ai로 화면 생성해봤는데 디자인이 뭔가 구린 것 같기도 하고… 더 좋은 게 있으면 바꿀 예정 
 
 ### System-context-diagram (relationship to other systems)
 다이어그램은 이 시스템이 어떠한 환경에서 다른 컴포넌트들과 어떻게 연관되는지를 보여줍니다.
-
+![캡처](https://github.com/user-attachments/assets/86c37da6-b317-44c0-ac6b-4df42b003eb1)
 
 ### APIs
 - 서버 API : (server ip):(server port) 
