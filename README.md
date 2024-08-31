@@ -24,8 +24,8 @@
 
 ## Detailed design
 ### UI design
-![image](https://github.com/user-attachments/assets/b15142c0-b18c-4a48-a4ee-6b9bd42cfc46)
 -> leonardo.Ai로 화면 생성해봤는데 디자인이 뭔가 구린 것 같기도 하고… 더 좋은 게 있으면 바꿀 예정 
+![image](https://github.com/user-attachments/assets/b15142c0-b18c-4a48-a4ee-6b9bd42cfc46)
 
 ### System-context-diagram (relationship to other systems)
 다이어그램은 이 시스템이 어떠한 환경에서 다른 컴포넌트들과 어떻게 연관되는지를 보여줍니다.
