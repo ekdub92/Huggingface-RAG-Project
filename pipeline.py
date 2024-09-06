@@ -39,22 +39,23 @@ index_config = {
 }
 
 # create the index
-client.indices.create(index='tfidf_vector_index', body=index_config, ignore=400)
+index_name = 'tfidf_vector_index'
+client.indices.create(index=index_name, body=index_config, ignore=400)
 
 # prepare documents for indexing
 docs = [{
-    "_index": "tfidf_vector_index",
+    "_index": index_name,
     "_source": {
         "content": line['sentence'],
         "content_vector": tfidf_matrix[index].toarray().flatten().tolist()
     }
 } for index, line in enumerate(records)]
-print(docs)
+
 # bulk indexing the documents 
-helpers.bulk(client, docs)
+helpers.bulk(client, docs, index=index_name, raise_on_error=False)
 
 # example vector inference 
-query = ""
+query = "What is Transformer?"
 query_vector = vectorizer.transform([query]).toarray()[0].tolist()
 
 # define the vector similarity query 
@@ -62,7 +63,7 @@ script_query = {
     "script_score": {
         "query": {"match_all": {}},
         "script": {
-            "source": "cosineSimilarity(params.query_vector, doc['content_vector'])",
+            "source": "cosineSimilarity(params.query_vector, doc['content_vector']) + 1.0",
             "params": {"query_vector": query_vector}
         }
     }
@@ -70,7 +71,7 @@ script_query = {
 
 # perform the search 
 response = client.search(
-    index="tfidf_vector_index",
+    index=index_name,
     query=script_query,
     size=10,
     _source_includes=["content"]
