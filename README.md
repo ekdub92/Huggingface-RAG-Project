@@ -10,6 +10,8 @@ pip install -r requirements.txt
 streamlit run main.py
 ```
 
+![example](assets/sample.png)
+
 ## How to save and load vectorstore
 1. Save Huggingface documents in vectorstore
 ```bash
